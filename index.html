@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="js/three.min.js"></script>
-    <script src="js/OrbitControls.js"></script>
-    <script src="js/dat.gui.min.js"></script>
+    <script src="js/libs/three.min.js"></script>
+    <script src="js/libs/OrbitControls.js"></script>
+    <script src="js/libs/dat.gui.min.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <script src="js/layout/tab-pane.js"></script>
     <script src="js/scene.js"></script>
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -14,49 +16,116 @@
 <body>
 
 <div class="wrapper">
-    <div class="controls">
 
-        <label>
-            Ширина проема
-            <input id="width" type="number" min="100">
-        </label>
-        <label>
-            Высота проема
-            <input id="height" type="number" min="100">
-        </label>
-        <label>
-            Кол-во дверей
-            <input id="count" type="number">
-        </label>
+    <div class="tabs">
 
-        <div>
-            <label>
-                Вертикальный профиль
-                <select id="profile">
-                    <option value="1">SLIM</option>
-                    <option value="2">КВАДРО</option>
-                    <option value="3">ПРЕСТИЖ</option>
-                </select>
-            </label>
+        <div class="tab active" data-target="dimension">
+            <i class="fa fa-sliders"></i>
         </div>
 
-        <div>
-            <label>
-                цвет профиля
-                <select id="color">
-                    <option value="gray">Серебристый</option>
-                    <option value="#D4AF37">Золотистый</option>
-                </select>
-            </label>
+        <div class="tab" data-target="doors">
+            <i class="fa fa-clone"></i>
         </div>
 
-        <label>
-            Кол-во перехлестов
-            <input id="perehlest" type="number">
-        </label>
-        <input type="button" id="show" value="Показать">
+        <div class="tab" data-target="colors">
+            <i class="fa fa-paint-brush"></i>
+        </div>
+    </div>
+
+    <div class="tab-container">
+        <div class="visible" data-tab="dimension">
+            <h1>Размеры</h1>
+            <div class="input-row">
+                <label>Ширина проема
+                <input id="width" type="number">
+                </label>
+            </div>
+            <div class="input-row">
+                <label>Высота проема
+                    <input id="height" type="number">
+                </label>
+            </div>
+            <div class="input-row">
+                <label>Количество дверей
+                    <input id="count" type="number">
+                </label>
+            </div>
+            <div class="input-row">
+                <label>Количество перехлестов
+                    <input id="pereh" type="number">
+                </label>
+            </div>
+
+            <div class="input-row">
+                <button id="show" type="button">Отобразить</button>
+            </div>
+        </div>
+
+        <div data-tab="doors">
+            <h1>Двери</h1>
+            <div id="prof">
+                <label>
+                    Тип профиля
+                </label>
+            </div>
+        </div>
+
+        <div data-tab="colors">
+            <h1>Наполнение</h1>
+
+            <div id="doors">
+                <p>Нет дверей</p>
+            </div>
+
+        </div>
+
 
     </div>
+
+
+    <!--<div class="controls">-->
+
+        <!--<label>-->
+            <!--Ширина проема-->
+            <!--<input id="width" type="number" min="100">-->
+        <!--</label>-->
+        <!--<label>-->
+            <!--Высота проема-->
+            <!--<input id="height" type="number" min="100">-->
+        <!--</label>-->
+        <!--<label>-->
+            <!--Кол-во дверей-->
+            <!--<input id="count" type="number">-->
+        <!--</label>-->
+
+        <!--<div>-->
+            <!--<label>-->
+                <!--Вертикальный профиль-->
+                <!--<select id="profile">-->
+                    <!--<option value="1">SLIM</option>-->
+                    <!--<option value="2">КВАДРО</option>-->
+                    <!--<option value="3">ПРЕСТИЖ</option>-->
+                <!--</select>-->
+            <!--</label>-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <!--<label>-->
+                <!--цвет профиля-->
+                <!--<select id="color">-->
+                    <!--<option value="gray">Серебристый</option>-->
+                    <!--<option value="#D4AF37">Золотистый</option>-->
+                <!--</select>-->
+            <!--</label>-->
+        <!--</div>-->
+
+        <!--<label>-->
+            <!--Кол-во перехлестов-->
+            <!--<input id="perehlest" type="number">-->
+        <!--</label>-->
+        <!--<input type="button" id="show" value="Показать">-->
+
+    <!--</div>-->
 
     <div id="container">
 
